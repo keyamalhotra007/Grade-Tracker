@@ -1,0 +1,21 @@
+{
+    "keya": {},
+    "ishsi": {
+        "bio": {
+            "remaining_percent": 100,
+            "remaining_tests": 2,
+            "tests": {
+                "midterm": [
+                    20.0,
+                    null,
+                    null
+                ],
+                "final": [
+                    80.0,
+                    null,
+                    null
+                ]
+            }
+        }
+    }
+}
