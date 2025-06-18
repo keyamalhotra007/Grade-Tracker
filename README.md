@@ -11,5 +11,5 @@ Helps students manage their academic progress. Users can add students, courses, 
 - **Clear Data:** Reset all stored information.  
 - **Quit:** Exit the program.
   
-Why Use This?
+## Why Use This?
 Keeping track of grades manually can be confusing and stressful. This tool simplifies the process by calculating the average you need on future tests, helping you stay on track with your academic goals.
