@@ -1,10 +1,3 @@
-'''
-2. course rank list 
-3. also tell final percentage if all scores are added 
-4. Add unique student ID in case 2 people with same name
-5. All inputs in lower case
-'''
-
 import json #JSON represents data as key-value pairs, arrays, or nested objects
 
 try:
@@ -230,22 +223,29 @@ def clear_data():
     save_data()
 
 def view_grades(name):
+
+    if name not in data:
+        print("Student not found.")
+        return
+    
     if not data[name]: 
         print("\nNo courses added for this student")
         return
-    try:
-        print(f"\nGrades for {name}:")
-        for course, details in data[name].items():
-            print(f"\nCourse: {course}")
-            #print(f"Remaining Percent: {details['remaining_percent']}")
-            print("Tests:")
-            for test_name, (weight, required, score) in details["tests"].items():
-                print(f"\n{test_name}")
-                print(f"Score: {score if score is not None else 'None'}")
-                if score is None:
-                    print(f"Required: {required if required is not None else''}")
-    except KeyError:
-        print("Student not found.")
+    
+    print(f"\nGrades for {name}:")
+    for course, details in data[name].items():
+        print(f"\nCourse: {course}")
+        if "tests" not in details or not details["tests"]:
+            print("Course not found.")
+            continue
+        
+        print("Tests:")
+        for test_name, (weight, required, score) in details["tests"].items():
+            print(f"\n{test_name}")
+            print(f"Score: {score if score is not None else 'None'}")
+            # Only print 'Required' if it's not None
+            if score is None and required is not None:
+                print(f"Required: {required}")
 
 def main():
     while True:
