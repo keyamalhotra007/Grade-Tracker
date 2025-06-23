@@ -267,7 +267,15 @@ def main():
         elif choice == "2":
             name = input("Enter student name: ").lower()
             course_name = input("Enter course name: ").lower()
-            num_tests = int(input("Enter number of tests: "))
+            while True:
+                try:
+                    num_tests = int(input("Enter number of tests: "))
+                    if num_tests <= 0:
+                        print("Please enter a positive number.")
+                    else:
+                        break  # valid input, exit loop
+                except ValueError:
+                    print("Invalid input. Please enter a valid number.")
             add_course(name, course_name, num_tests)
             add_weightage(name, course_name, num_tests)
 
